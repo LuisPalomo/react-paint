@@ -1,0 +1,38 @@
+.container {
+  max-width: 75%;
+  margin: 0 auto;
+  padding: 0 $m-size;
+
+  &.flex {
+    display: flex;
+  }
+}
+
+.draw-panel {
+  flex-grow: 2;
+  margin-right: $xl-size;
+}
+
+.draw-panel__options {
+  display: flex;
+  justify-content: center;
+}
+
+.side-panel {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.side-panel__text {
+  color: white;
+  font-size: $m-size;
+  font-weight: 600;
+  margin: 0 0 $m-size;
+}
+
+.side-panel__box {
+  border: 1px solid black;
+  min-height: 100px;
+  margin: 0 0 $m-size;
+}

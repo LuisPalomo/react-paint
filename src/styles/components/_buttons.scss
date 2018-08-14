@@ -1,0 +1,26 @@
+.fa-button {
+  background: $base-blue;
+  border: none;
+  border-radius: 2rem;
+  cursor: pointer;
+  margin: $s-size;
+  padding: 1rem;
+  
+  &:hover {
+    background: $hover-blue;
+  }
+  
+  &:active {
+    background: $active-blue;
+  }
+  
+  &:disabled {
+    background: $base-blue;
+    cursor: default;
+    opacity: 0.3;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
