@@ -11,4 +11,4 @@ Run `npm run build` or `yarn run build` to build the project. The build artifact
 
 ## Running unit tests
 
-###WIP
+### WIP

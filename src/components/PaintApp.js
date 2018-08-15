@@ -1,4 +1,5 @@
 import React from 'react';
+import Slider from 'react-rangeslider';
 
 import Header from './Header';
 import DrawArea from './DrawArea';
@@ -10,6 +11,7 @@ export default class PaintApp extends React.Component {
     removedLines: [],
     colors: ['#000000', '#B326DD', '#36F63F', '#4A2EAA', '#B5A35E', '#DDA626', '#339DDD', '#38AA98', '#B57369', '#DD3335'],
     selectedColor: '#000000',
+    lineWeight: 1,
   };
 
   componentDidMount() {
@@ -38,6 +40,7 @@ export default class PaintApp extends React.Component {
           {
             points: [initPoint],
             color: prevState.selectedColor,
+            weight: prevState.lineWeight,
           },
         ],
         removedLines: [],
@@ -54,8 +57,8 @@ export default class PaintApp extends React.Component {
         lines: [
           ...firstLines,
           {
+            ...lastLine,
             points: [...lastLine.points, point],
-            color: lastLine.color
           }
         ],
       };
@@ -88,6 +91,10 @@ export default class PaintApp extends React.Component {
 
   handleColorPick = (color) => {
     this.setState(() => ({ selectedColor: color }));
+  }
+
+  handleWeightChange = (value) => {
+    this.setState(() => ({ lineWeight: value }));
   }
   
   render() {
@@ -128,7 +135,13 @@ export default class PaintApp extends React.Component {
               handleColorPick={this.handleColorPick}
             />
             <p className="side-panel__text">Line weight:</p>
-            <div className="side-panel__box"></div>
+            <Slider
+              min={1}
+              max={20}
+              value={this.state.lineWeight}
+              onChange={this.handleWeightChange}
+            />
+            <div style={{ background: this.state.selectedColor, height: this.state.lineWeight, borderRadius: this.state.lineWeight }}></div>
           </div>
         </div>
       </div>
