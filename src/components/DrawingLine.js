@@ -1,13 +1,13 @@
 import React from 'react';
 
-const DrawingLine = ({ line }) => {
+const DrawingLine = ({ points, color }) => {
   const pathData = 
     'M ' +
-    line
+    points
       .map((point) => `${point.x} ${point.y}`)
       .join(' L ');
   
-  return <path className="path" d={pathData} />;
+  return <path className="path" d={pathData} stroke={color}/>;
 }
 
 export default DrawingLine;

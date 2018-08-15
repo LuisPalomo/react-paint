@@ -2,11 +2,14 @@ import React from 'react';
 
 import Header from './Header';
 import DrawArea from './DrawArea';
+import ColorPicker from './ColorPicker';
 
 export default class PaintApp extends React.Component {
   state = {
     lines: [],
     removedLines: [],
+    colors: ['#000000', '#B326DD', '#36F63F', '#4A2EAA', '#B5A35E', '#DDA626', '#339DDD', '#38AA98', '#B57369', '#DD3335'],
+    selectedColor: '#000000',
   };
 
   componentDidMount() {
@@ -30,7 +33,13 @@ export default class PaintApp extends React.Component {
   createNewLine = (initPoint) => {
     this.setState((prevState) => (
       {
-        lines: [...prevState.lines, [initPoint]],
+        lines: [
+          ...prevState.lines,
+          {
+            points: [initPoint],
+            color: prevState.selectedColor,
+          },
+        ],
         removedLines: [],
       }
     ));
@@ -42,7 +51,13 @@ export default class PaintApp extends React.Component {
       const lastLine = prevState.lines[prevState.lines.length - 1];
       
       return {
-        lines: [...firstLines, [...lastLine, point]],
+        lines: [
+          ...firstLines,
+          {
+            points: [...lastLine.points, point],
+            color: lastLine.color
+          }
+        ],
       };
     });
   };
@@ -70,6 +85,10 @@ export default class PaintApp extends React.Component {
       }
     })
   };
+
+  handleColorPick = (color) => {
+    this.setState(() => ({ selectedColor: color }));
+  }
   
   render() {
     return (
@@ -101,7 +120,11 @@ export default class PaintApp extends React.Component {
           </div>
           <div className="side-panel">
             <p className="side-panel__text">Color:</p>
-            <div className="side-panel__box"></div>
+            <ColorPicker
+              colors={this.state.colors}
+              selectedColor={this.state.selectedColor}
+              handleColorPick={this.handleColorPick}
+            />
             <p className="side-panel__text">Line weight:</p>
             <div className="side-panel__box"></div>
           </div>
