@@ -106,6 +106,7 @@ export default class PaintApp extends React.Component {
                 className="fa-button"
                 onClick={this.removeLastLine}
                 disabled={this.state.lines.length === 0}
+                title="Undo(Ctrl+Z)"
               >
                 <i className="fa fa-undo fa-lg fa-inverse"></i>
               </button>
@@ -113,6 +114,7 @@ export default class PaintApp extends React.Component {
                 className="fa-button"
                 onClick={this.redoLastLine}
                 disabled={this.state.removedLines.length === 0}
+                title="Redo(Ctrl+Shift+Z)"
                 >
                 <i className="fa fa-undo fa-lg fa-inverse fa-flip-horizontal"></i>
               </button>
