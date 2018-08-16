@@ -38,7 +38,7 @@ export default class PaintApp extends React.Component {
         lines: [
           ...prevState.lines,
           {
-            points: [initPoint],
+            points: [initPoint, initPoint],
             color: prevState.selectedColor,
             weight: prevState.lineWeight,
           },

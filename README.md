@@ -7,7 +7,7 @@ Run `npm run serve` or `yarn run serve` for a dev server. Navigate to `http://lo
 
 ## Build
 
-Run `npm run build` or `yarn run build` to build the project. The build artifacts will be stored in the `public/` directory.
+Run `npm run build` or `yarn run build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
 ## Running unit tests
 
