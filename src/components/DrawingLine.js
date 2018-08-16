@@ -7,7 +7,7 @@ const DrawingLine = ({ points, color, weight }) => {
       .map((point) => `${point.x} ${point.y}`)
       .join(' L ');
   
-  return <path className="path" d={pathData} stroke={color} stroke-width={weight}/>;
+  return <path className="path" d={pathData} stroke={color} strokeWidth={weight}/>;
 }
 
 export default DrawingLine;

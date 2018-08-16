@@ -69,7 +69,6 @@ export default class PaintApp extends React.Component {
     this.setState((prevState) => {
       const firstLines = prevState.lines.slice(0, prevState.lines.length -1);
       const lastLine = prevState.lines[prevState.lines.length - 1];
-      console.log('LastLine: ', lastLine)
       return {
         lines: firstLines,
         removedLines: [...prevState.removedLines, lastLine],
